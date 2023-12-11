@@ -27,7 +27,7 @@ export default async function Page() {
         <>
             <Navbar/>
             <div className="flex justify-center">
-                <div className="mt-2 grid grid-cols-4 gap-4">
+                <div className="mt-2 s:p-2 s:grid-cols-2 l:p-3 tablet:grid-cols-3 tablet:p-6 grid laptop:grid-cols-4 laptop:p-8 gap-4">
                     {locations.map((location,index)=>{
                         return <LocationCard key={index}
                             name = {location.name}

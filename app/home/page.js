@@ -28,7 +28,7 @@ export default async function Home() {
     <>
     <Navbar/>
       <div className="flex justify-center items-center mt-auto">
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid s:grid-cols-2 s:p-2 tablet:p-4 tablet:grid-cols-3 laptop:grid-cols-4 gap-4">
             {characters.map((character,index)=>{
               return <CharacterCard
                 key={index}

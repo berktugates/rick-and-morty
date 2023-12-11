@@ -8,9 +8,9 @@ export default function Home() {
   return (
     <>
       <div style={{ backgroundImage: `url('/login-background.png')` }} className="h-screen flex justify-center items-center bg-center bg-cover">        
-        <div className="flex flex-col">
+        <div className="flex flex-col s:w-2/3 m:w-3/4 tablet:w-2/3 laptop:w-1/2 laptopL:w-1/3">
           <div id="login-box" className="bg-gray-200 bg-opacity-40 p-6 border  rounded-lg shadow-lg flex flex-col justify-center">
-                <h1 className = {`text-gray-900 text-center text-3xl font-bungee mt-4 mb-4 font-bold animate-pulse hover:transition-all`}>Welcome to the World of Rick and Morty!</h1>
+                <h1 className = {`text-gray-900 text-center s:text-2xl tablet:text-3xl font-bungee mt-4 mb-4 font-bold animate-pulse hover:transition-all`}>Welcome to the World of Rick and Morty!</h1>
                     <Formik
                         initialValues={{
                           name:'',
@@ -47,8 +47,8 @@ export default function Home() {
                         handleChange,
                       }) => (
                         <>
-                          <form className="flex flex-col" onSubmit={handleSubmit}>
-                              <label htmlFor="name" className="mb-2 text-xl font-extrabold">
+                            <form className="flex flex-col" onSubmit={handleSubmit}>
+                              <label htmlFor="name" className="mb-2 s:text-lg l:text-xl font-extrabold">
                                 Name
                               </label>
                               <input
@@ -67,7 +67,7 @@ export default function Home() {
                                 )
                               }
 
-                              <label htmlFor="surname" className="mb-2 text-xl font-extrabold">
+                              <label htmlFor="surname" className="mb-2 s:text-lg l:text-xl font-extrabold">
                                 Surname
                               </label>
                               <input
@@ -86,7 +86,7 @@ export default function Home() {
                                 )
                               }
 
-                              <label htmlFor="email" className="mb-2 text-xl font-extrabold">
+                              <label htmlFor="email" className="mb-2 s:text-lg l:text-xl font-extrabold">
                                 Email
                               </label>
                               <input
@@ -105,7 +105,7 @@ export default function Home() {
                                 )
                               }
 
-                              <label htmlFor="password" className="mb-2 mt-2 text-xl font-extrabold">
+                              <label htmlFor="password" className="mb-2 mt-2 s:text-lg l:text-xl font-extrabold">
                                 Password
                               </label>
                               <input
@@ -124,11 +124,11 @@ export default function Home() {
                               }
 
                               <div className="flex justify-center items-center">
-                                <button  className="bg-cyan-400 text-white p-4 rounded-lg cursor-pointer hover:bg-cyan-500 disabled:opacity-75" type="submit" disabled={!dirty || isSubmitting}>
-                                  Login
+                                <button  className="bg-cyan-400 text-white s:p-3 s:mt-2 tablet:p-4 rounded-lg cursor-pointer hover:bg-cyan-500 disabled:opacity-75" type="submit" disabled={!dirty || isSubmitting}>
+                                  Discover!
                                 </button>
                               </div>
-                        </form> 
+                            </form>
                         </>
                       )
                     }    

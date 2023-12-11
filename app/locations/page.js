@@ -1,19 +1,28 @@
 "use client"
 import axios from "axios";
 import Navbar from "../components/Navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LocationCard from "../components/LocationCard";
 
-const page = () => {
+const defaultEndpoint = 'https://rickandmortyapi.com/api/location'
+
+async function loadingEffect () {
+    await new Promise (resolve => setTimeout(resolve,1000))
+}
+
+export default async function Page() {
+    loadingEffect()
     const [locations, setLocations] = useState([])
-    axios
-    .get("https://rickandmortyapi.com/api/location")
-    .then((response)=>{
-        setLocations(response.data.results)
-    })
-    .catch((error)=>{
-        console.log(error,"error")
-    })
+    useEffect(()=>{
+        axios
+        .get(defaultEndpoint)
+        .then((response)=>{
+            setLocations(response.data.results)
+        })
+        .catch((error)=>{
+            console.log(error,"error")
+        })
+    },[])
     return (
         <>
             <Navbar/>
@@ -32,5 +41,3 @@ const page = () => {
         </>
     )
 }
-
-export default page;

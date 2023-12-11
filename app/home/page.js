@@ -4,12 +4,18 @@ import { useEffect, useState } from "react"
 import CharacterCard from "../components/CharacterCard"
 import Navbar from "../components/Navbar"
 
-export default function Home() {
-  const [characters, setCharacters] = useState([])
+const defaultEndpoint = 'https://rickandmortyapi.com/api/character'
 
+async function loadingEffect () {
+  await new Promise (resolve => setTimeout(resolve,1000))
+}
+
+export default async function Home() {
+  loadingEffect()
+  const [characters, setCharacters] = useState([])
   useEffect(()=>{
     axios
-    .get('https://rickandmortyapi.com/api/character')
+    .get(defaultEndpoint)
     .then((response)=>{
       setCharacters(response.data.results)
     })
@@ -17,7 +23,7 @@ export default function Home() {
       console.log(error,"error");
     })
   },[])
-
+  
   return (
     <>
     <Navbar/>
@@ -26,6 +32,7 @@ export default function Home() {
             {characters.map((character,index)=>{
               return <CharacterCard
                 key={index}
+                counter = {index + 1}
                 name = {character.name}
                 status = {character.status}
                 gender = {character.gender}
